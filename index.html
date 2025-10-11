@@ -278,69 +278,67 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel (replaced with static grid) -->
+<!-- Image grid (replaced with vertical stack) -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <div class="columns is-multiline is-centered">
 
-        <!-- Item 1 -->
-        <div class="column is-half-desktop is-full-mobile">
-          <div class="image-container has-text-centered">
-            <img src="img/overview.png" alt="Overview of CLIP-IN" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-          </div>
-          <h2 class="subtitle has-text-centered mt-3">
-            Overview of CLIP-IN
-          </h2>
-          <p class="has-text-centered is-size-6" style="color: #6b7280; margin-top: 0.5em;">
-            Our framework integrates instruction-editing data and long captions to enhance fine-grained visual understanding in CLIP.
-          </p>
+      <!-- Item 1 -->
+      <div class="box mb-5" style="padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+        <div class="has-text-centered">
+          <img src="img/overview.png" alt="Overview of CLIP-IN" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
         </div>
-
-        <!-- Item 2 -->
-        <div class="column is-half-desktop is-full-mobile">
-          <div class="image-container has-text-centered">
-            <img src="img/result1.jpg" alt="CLIP-IN enhances zero-shot performance" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-          </div>
-          <h2 class="subtitle has-text-centered mt-3">
-            Zero-Shot Performance
-          </h2>
-          <p class="has-text-centered is-size-6" style="color: #6b7280; margin-top: 0.5em;">
-            CLIP-IN significantly improves performance on classification and retrieval benchmarks without fine-tuning.
-          </p>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="column is-half-desktop is-full-mobile">
-          <div class="image-container has-text-centered">
-            <img src="img/result2.jpg" alt="CLIP-IN enhances performance on MMVP" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-          </div>
-          <h2 class="subtitle has-text-centered mt-3">
-            MMVP Benchmark
-          </h2>
-          <p class="has-text-centered is-size-6" style="color: #6b7280; margin-top: 0.5em;">
-            Outperforms baseline models on the challenging Multi-modal Video Prediction benchmark.
-          </p>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="column is-half-desktop is-full-mobile">
-          <div class="image-container has-text-centered">
-            <img src="img/result3.jpg" alt="CLIP-IN enhances performance on other compositional benchmarks" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-          </div>
-          <h2 class="subtitle has-text-centered mt-3">
-            Compositional Benchmarks
-          </h2>
-          <p class="has-text-centered is-size-6" style="color: #6b7280; margin-top: 0.5em;">
-            Demonstrates strong generalization on complex composition tasks like COCO Captions and Flickr30k.
-          </p>
-        </div>
-
+        <h2 class="subtitle has-text-centered mt-3" style="font-weight: 600;">
+          Overview of CLIP-IN
+        </h2>
+        <p class="has-text-centered is-size-6" style="color: #6b7280; margin-top: 0.5em; line-height: 1.6;">
+          Our framework integrates instruction-editing data and long captions to enhance fine-grained visual understanding in CLIP.
+        </p>
       </div>
+
+      <!-- Item 2 -->
+      <div class="box mb-5" style="padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+        <div class="has-text-centered">
+          <img src="img/result1.jpg" alt="CLIP-IN enhances zero-shot performance" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        </div>
+        <h2 class="subtitle has-text-centered mt-3" style="font-weight: 600;">
+          Zero-Shot Performance
+        </h2>
+        <p class="has-text-centered is-size-6" style="color: #6b7280; margin-top: 0.5em; line-height: 1.6;">
+          CLIP-IN significantly improves performance on classification and retrieval benchmarks without fine-tuning.
+        </p>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="box mb-5" style="padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+        <div class="has-text-centered">
+          <img src="img/result2.jpg" alt="CLIP-IN enhances performance on MMVP" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        </div>
+        <h2 class="subtitle has-text-centered mt-3" style="font-weight: 600;">
+          MMVP Benchmark
+        </h2>
+        <p class="has-text-centered is-size-6" style="color: #6b7280; margin-top: 0.5em; line-height: 1.6;">
+          Outperforms baseline models on the challenging Multi-modal Video Prediction benchmark.
+        </p>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="box mb-5" style="padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+        <div class="has-text-centered">
+          <img src="img/result3.jpg" alt="CLIP-IN enhances performance on other compositional benchmarks" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        </div>
+        <h2 class="subtitle has-text-centered mt-3" style="font-weight: 600;">
+          Compositional Benchmarks
+        </h2>
+        <p class="has-text-centered is-size-6" style="color: #6b7280; margin-top: 0.5em; line-height: 1.6;">
+          Demonstrates strong generalization on complex composition tasks like COCO Captions and Flickr30k.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
-<!-- End image grid -->
+<!-- End vertical image stack -->
 
 
 
