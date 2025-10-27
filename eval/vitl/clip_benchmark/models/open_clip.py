@@ -9,7 +9,7 @@ import torch
 
 from .transformer_rope import TextTransformerRoPE,precompute_freqs_cis_dynamic_ntk_scaling, _expand_token, text_global_pool
 
-def load_open_clip(model_name: str = "ViT-B-32-quickgelu", pretrained: str = "laion400m_e32", cache_dir: str = None, device="cpu",long_cap: bool=False,stage_1:bool=False,text_path:str=None,context_length: int=77):
+def load_open_clip(model_name: str = "ViT-B-32-quickgelu", pretrained: str = "laion400m_e32", cache_dir: str = None, device="cpu",long_cap: bool=False,context_length: int=77):
     if long_cap:
         model,_,transform=create_model_and_transforms(model_name,force_custom_text=True)
         text_cfg=get_model_config(model_name)
