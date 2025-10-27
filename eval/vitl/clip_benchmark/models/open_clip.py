@@ -1,16 +1,12 @@
 import os
 import sys
 import torch.nn.functional as F
-parent_dir = os.path.dirname(os.path.abspath(__file__))
-# 将父目录添加到 Python 的模块搜索路径
-sys.path.append(parent_dir)
+
 
 from open_clip_pkg import create_model_and_transforms, get_tokenizer,get_model_config,CustomTextCLIP
 from copy import deepcopy
 import torch
-current_dir = os.path.dirname(os.path.abspath(__file__))
-# 将models目录添加到Python路径
-sys.path.insert(0, current_dir)
+
 from .transformer_rope import TextTransformerRoPE,precompute_freqs_cis_dynamic_ntk_scaling, _expand_token, text_global_pool
 
 def load_open_clip(model_name: str = "ViT-B-32-quickgelu", pretrained: str = "laion400m_e32", cache_dir: str = None, device="cpu",long_cap: bool=False,stage_1:bool=False,text_path:str=None,context_length: int=77):
@@ -37,33 +33,6 @@ def load_open_clip(model_name: str = "ViT-B-32-quickgelu", pretrained: str = "la
         model.encode_text = encode_text.__get__(model, CustomTextCLIP)
         print(f"Missing keys {missing_keys}")
         print(f"unexpected keys {unexpected_keys}")
-    elif stage_1:
-        model,_,transform=create_model_and_transforms(model_name,pretrained=pretrained,force_custom_text=True)
-        text_cfg=get_model_config(model_name)
-        text=TextTransformerRoPE(context_length=context_length, 
-                                vocab_size=text_cfg["text_cfg"]["vocab_size"],
-                                width=text_cfg["text_cfg"]["width"],
-                                heads=text_cfg["text_cfg"]["heads"],
-                                layers=text_cfg["text_cfg"]["layers"],
-                                output_dim=text_cfg["text_cfg"]["width"])
-        tokenizer=get_tokenizer(model_name,context_length=context_length)
-        ckpt=torch.load(text_path)
-        ckpt['state_dict'] = {k.replace('module.', ''): v for k, v in ckpt['state_dict'].items()}
-        filtered_state_dict = {}
-        for name, param in text.named_parameters():
-                if name in ckpt['state_dict']:
-                    filtered_state_dict[name] = ckpt['state_dict'][name]
-                else:
-                    print(f"Warning: {name} not found in checkpoint")
-
-            # Load the filtered state dict
-        missing_keys, unexpected_keys = text.load_state_dict(filtered_state_dict, strict=False)
-        text.to(device)
-        print(f"Missing keys: {missing_keys}")
-        print(f"Unexpected keys: {unexpected_keys}")
-        model.text=deepcopy(text)
-        model.encode_text = encode_text.__get__(model, CustomTextCLIP)
-        model.to(device)
     else:
         model, _, transform = create_model_and_transforms(model_name, pretrained=pretrained, cache_dir=cache_dir, force_custom_text=True,force_context_length=context_length)
         model = model.to(device)
