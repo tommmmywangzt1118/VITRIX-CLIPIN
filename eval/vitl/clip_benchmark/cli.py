@@ -9,7 +9,7 @@ from copy import copy
 from itertools import product
 
 import torch
-sys.path.append("/mnt/dolphinfs/hdd_pool/docker/user/hadoop-automl/ziteng/github.com/LAION-AI/CLIP_benchmark.git")
+
 from clip_benchmark.datasets.builder import (build_dataset, dataset_collection,
                                              get_dataset_collate_fn,
                                              get_dataset_collection_from_file,
