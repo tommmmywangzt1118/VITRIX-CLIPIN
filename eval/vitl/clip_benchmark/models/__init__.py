@@ -19,10 +19,8 @@ def load_clip(
         cache_dir: str,
         long_cap: bool,
         context_length: int,
-        stage_1:bool,
-        text_path:str,
         device: Union[str, torch.device] = "cuda"     
 ):
     assert model_type in MODEL_TYPES, f"model_type={model_type} is invalid!"
     load_func = TYPE2FUNC[model_type]
-    return load_func(model_name=model_name, pretrained=pretrained, cache_dir=cache_dir, device=device, long_cap=long_cap, context_length=context_length,stage_1=stage_1,text_path=text_path)
+    return load_func(model_name=model_name, pretrained=pretrained, cache_dir=cache_dir, device=device, long_cap=long_cap, context_length=context_length)
